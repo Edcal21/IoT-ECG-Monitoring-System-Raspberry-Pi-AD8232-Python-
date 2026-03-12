@@ -1,0 +1,369 @@
+SMPlayer _VERSION_ _BUILD_ README
+
+(W) Christian Hennecke, Oct 28, 2008
+zuletzt geÑndert am 14.05.2012
+
+0. INHALT DIESER DATEI
+======================
+
+1. EINFöHRUNG
+
+2. ERFORDERNISSE
+
+3. INSTALLATION
+
+4. LIZENZ, URHEBERRECHT, HAFTUNGSAUSSCHLUSS
+
+5. KONTAKT
+
+6. MITWIRKENDE PERSONEN
+
+7. UNTERSTöTZUNG UND SPENDEN
+
+8. ENTWICKLUNGSGESCHICHTE
+
+
+1. EINFöHRUNG
+=============
+
+Willkommen bei SMPlayer _VERSION_ _BUILD_ fÅr OS/2 und eComStation.
+
+SMPlayer ist ein GUI-Frontend fÅr MPlayer, einen Medienspieler fÅr die
+Befehlszeile, der fÅr viele Systeme erhÑltlich ist und eine gro·e Auswahl an
+Formaten und Codecs unterstÅtzt, entweder nativ oder Åber Win32-DLL-Codecs.
+Man kann mit ihm beispielsweise Video-CDs, SVCDs, DVDs sowie Filme in den
+Formaten 3ivx, DivX 3/4/5, WMV und sogar H.264 abspielen.
+
+Das Ziel fÅr SMPlayer ist es, ein vollstÑndiges Frontend fÅr MPlayer
+bereitzustellen, angefangen bei grundlegenden Funktionen wie dem Abspielen von
+Videos, DVDs und VCDs bis zu fortgeschritteneren Funktionen wie UnterstÅtzung
+fÅr MPlayer-Filter und mehr.
+
+Eine der interessantesten Funktionen von SMPlayer: Er merkt sich Einstellungen
+aller abgespielten Dateien. Mîchte man also einen Film anschauen, mu· dies aber
+unterbrechen, braucht man sich keine Sorgen zu machen, denn beim erneuten ôffnen
+des Films wird an der Stelle fortgefahren, an der man den Film verlassen hat.
+Und das mit den gleichen Einstellungen fÅr Audio-Spur, Untertitel, LautstÑrke...
+
+Weitere interessante Funktionen:
+
+  * Konfigurierbare Untertitel. FÅr die Untertitel kînnen Schriftart, -grî·e
+    und sogar die Farbe ausgewÑhlt werden.
+  * Umschalten der Audio-Spur. Die gewÅnschte Audio-Spur kann ausgewÑhlt werden.
+    Dies funktioniert bei avi, mkv und natÅrlich bei DVDs.
+  * Suchen per Mausrad. Mit Hilfe des Mausrades kann innerhalb des Videos
+    navigiert werden.
+  * Der Video-Equalizer erlaubt die Anpassung der Einstellungen fÅr Helligkeit,
+    Kontrast, Farbwert, SÑttigung und Gamma des Videobildes.
+  * Wiedergabe in mehreren Geschwindigkeiten. Filme kînnen in zweifacher,
+    vierfacher Geschwindigkeit usw. und auch in Zeitlupe wiedergegeben werden.
+  * Filter. Es stehen mehrere Filter zur VergÅgung: deinterlace, postprocessing,
+    denoise... und sogar ein Karaoke-Filter (Entfernung der Stimme).
+  * Anpassung der Verzîgerung fÅr Audio und Untertitel. Erlaubt die
+    Synchronisierung von Audio und Untertiteln.
+  * Erweiterte Optionen, wie z.B. die Auswahl eines Demuxers oder von Video- und
+    Audio-Codecs.
+  * Abspielliste. Erlaubt es, mehrere Dateien zum Abspielen nacheinander
+    vorzumerken. UnterstÅtzt automatische Wiederholung und Zufallswiedergabe.
+  * Einstellungsdialog. Jede Option von SMPlayer lÑ·t sich auf einfache Weise
+    Åber einen Einstellungsdialog anpassen.
+  * UnterstÅtzung fÅr Suche von Untertiteln bei opensubtitles.org.
+  * öbersetzungen: derzeit liegen fÅr SMPlayer öbersetzungen in mehr als 20
+    Sprachen vor:Translations, einschlie·lich Spanisch, Deutsch, Franzîsisch,
+    Italienisch, Russisch, Chinesisch, Japanisch...
+  * Das Programm ist plattformÅbergreifend. BinÑrdistributionen sind fÅr
+    Windows, Linux und nun auch OS/2 erhÑltlich.
+  * SMPlayer steht unter der GPL.
+
+Wenn Sie die SMPlayer-Web-Site besuchen, werden Sie bemerken, da· die OS/2-
+Portierung nicht auf dem neuesten Stand ist. Es mu·te diese konkrekte Version
+von SMPlayer verwendet werden, da SMPlayer die Bibliothek Qt benutzt und sie
+die letzte Version ist, die auf Qt3 aufbaut. Neuere Versionen nutzen Qt4, die
+nicht fÅr OS/2 erhÑltlich ist. Sollte sie noch erhÑltlich werden, werden wir die
+OS/2-Portierung auf die neueste SMPlayer-Version aktualisieren.
+
+
+2. ERFORDERNISSE
+================
+
+Folgende Voraussetzungen mÅssen installiert werden.
+
+
+2.1 kLIBC, GCC4Core, Qt4
+------------------------
+
+Die Installation dieser Produkten kann entweder via RPM oder via ZIP Dateien
+erfolgen.
+
+2.1.a RPM Installation
+----------------------
+
+kLIBC
+-----
+
+  1. yum install libc
+
+GCC4Core
+--------
+
+  1. yum install libgcc
+  2. yum install gcc-stack-protector
+  3. yum install gcc-stdc++-shared-library
+  4. yum install gcc-supc++-shared-library
+
+Qt4 dll
+-------
+
+  1. yum install libqt4
+  2. Installieren Sie das xsystray plugin wie in der readme.os2 und auch in der
+     readme.xsystray beschrieben
+
+
+2.1.b ZIP Installation
+----------------------
+
+kLIBC
+-----
+
+  1. Download kLIBC 0.6.5 oder neuer (unter http://svn.netlabs.org/libc
+     befinden sich weitere Informationen)
+  2. Die Dateien in Ihren libpath installieren z.B. x:\ecs\dll
+
+GCC4Core
+--------
+
+  1. Download GCC4Core 1.2.1 oder neuer unter http://ftp.netlabs.org/pub/gcc
+  2. Die Dateien in Ihren libpath installieren z.B. x:\ecs\dll
+
+Qt4 dll
+-------
+
+  1. Download Qt4 4.7.3 oder neuer (unter http://svn.netlabs.org/qt4
+     befinden sich weitere Informationen)
+  2. Die Dateien anhand des readme installieren
+  3. Installieren Sie das xsystray plugin wie in der readme.os2 und auch in der
+     readme.xsystray beschrieben
+
+
+2.2 MPlayer, Win32 Codecs
+-------------------------
+
+Diese Produkte kînnen nur via ZIP Dateien installiert werden.
+
+MPlayer
+-------
+
+  http://hobbes.nmsu.edu/h-search.php?key=mplayer&pushbutton=Search
+
+  WARNUNG: Um alle Mîglichkeiten der Kombination SMPlayer und MPlayer nutzen zu
+           kînnen, ist mindestens Version mplayer-dev-SVN-r27724-OS2-4.3.2.zip
+           erforderlich. éltere Versionen unterstÅtzen keine Skalierung, d.h.
+           das Bild wird stets in der Originalgrî·e angezeigt. Die Einstellung
+           fÅr Zoom und Vollbild sind wirkungslos.
+
+Win32 codecs (optional)
+-----------------------
+
+  http://www.mplayerhq.hu/design7/dload.html#binary_codecs
+
+  MPlayer kann Win32-Codec-DLLs fÅr Codecs nutzen, die nicht nativ unterstÅtzt
+  werden.
+
+
+3. INSTALLATION
+===============
+         
+Zur Installation von SMPlayer fÅhren Sie folgende Schritte aus:
+
+MPlayer
+-------
+
+  1. Laden Sie eine aktuelle MPlayer-Version herunter.
+  2. Erstellen Sie ein neues Verzeichnis fÅr MPlayer.
+  3. Entpacken Sie das MPlayer-Paket in dieses neue Verzeichnis.
+  4. Kopieren Sie das Unterverzeichnis .mplayer - falls vorhanden - in Ihr
+     HOME-Verzeichnis.
+  5. Um Untertitel nutzen zu kînnen, kopieren Sie eine TrueType-Schrift Ihrer
+     Wahl in das Verzeichnis %HOME%\.mplayer und benennen Sie die Datei in
+     subfont.ttf um.
+
+Win32 Codecs
+------------
+
+  1. Laden Sie das Codec-Paket von der MPlayer-Web-Site herunter.
+  2. Wechseln Sie in das Verzeichnis, in dem Sie MPlayer installiert haben und
+     erstellen Sie ein Unterverzeichnis "codecs".
+  3. Entpacken Sie das Paket in das Unterverzeichnis "codecs".
+
+SMPlayer
+--------
+
+  1. Erstellen Sie ein Verzeichnis fÅr SMPlayer.
+  2. Entpacken Sie das SMPlayer-Paket in das neue Verzeichnis.
+  3. Erstellen Sie ein WPS-Objekt fÅr smplayer.exe.
+  4. ôffnen Sie SMPlayer.
+  5. ôffnen Sie die Einstellungen Åber "Optionen > Einstellungen".
+  6. WÑhlen Sie auf der linken Seite "Allgemein".
+  7. Unter der Indexzunge "Allgemein" finden Sie die Gruppe "Pfade". DrÅcken Sie
+     die SchaltflÑche "Suchen" und finden Sie die ausfÅhrbare Datei mplayer.exe
+     fÅr MPlayer.
+  8. In der Gruppe "AusgabegerÑtetreiber" wÑhlen Sie "kva" fÅr "Video" und "dart"
+     fÅr "Audio".
+  9. WÑhlen Sie auf der linken Seite "Laufwerke".
+ 10. WÑhlen Sie unter "Laufwerke" Ihr CD-ROM- und DVD-Laufwerk aus.
+ 11. WÑhlen Sie auf der linken Seite "Untertitel".
+ 12. Unter der Indexzunge "Schriftart" finden Sie die Gruppe "Schriftart". Dort
+     kînnen Sie entweder direkt eine zu verwendende Schriftartdatei oder ein im
+     System installierte Schriftart auswÑhlen:
+     * Zur Auswahl einer bestimmten Schriftartdatei wÑhlen Sie den Radioknopf
+       "TTF-Schrift", drÅcken dann "Suchen" und finden die Schriftartdatei der
+       TrueType-Schrift, die fÅr Untertitel verwendet werden soll.
+     * Zur Auswahl einer installierten Schriftart wÑhlen die den Radioknopf
+       "Systemschriftart", drÅcken "AuswÑhlen" und wÑhlen die gewÅnschte
+       Schriftart aus.
+ 13. Um eine schînere Darstellung zu erhalten, rufen Sie die Indexzunge
+     "SSA/ASS-Bibliothek" auf und aktivieren die Option "SSA/ASS-Bibliothek fÅr
+     Untertitel-Darstellung nutzen". Falls gewÅnscht passen Sie noch die Farbe
+     und die Schriftattribute an.
+ 14. DrÅcken Sie OK, um den Einstellungsdialog zu schlie·en.
+
+Auf langsamen Rechnern empfehlen sich folgende Zusatzeinstellungen:
+
+  1. WÑhlen Sie auf der linken Seite "Leistungsverhalten" aus.
+  2. Aktivieren Sie in der Gruppe "Cache" die Option "Cache verwenden".
+  3. Aktivieren Sie die Option "Frames Åberspringen".
+
+Falls Ihre Soundkarte eine Samping-Rate von 48kHz nicht unterstÅtzen sollte,
+nehmen Sie noch folgende Einstellung vor:
+
+  1. WÑhlen Sie auf der linken Seite "Erweitert".
+  2. Geben Sie in das Eingabefeld "Audio-Filter" folgendes ein:
+
+       resample=44100:0:1
+
+
+4. LIZENZ, URHEBERRECHT, HAFTUNGSAUSSCHLUSS
+===========================================
+
+SMPlayer ist (c) 2006-2013 Ricardo Villalba <ricardo@smplayer.info>.
+
+Das Urheberrecht der OS/2-Portierung ist (c) 2008, 2012 Silvan Scherrer.
+
+Dieses Programm ist freie Software; Sie kînnen es unter den Bedingungen
+der GNU General Public License, wie in der Datei COPYING im
+Installationsverzeichnis enthalten, weiterverbreiten und/oder
+modifizieren.
+
+Der Original-Quelltext ist erhÑltlich unter:
+
+  https://smplayer.info
+
+Dieses Programm wird in der Hoffnung vertrieben, da· es nÅtzlich ist,
+aber OHNE JEDWEDE HAFTUNG und ohne implizite Garantie der
+MARKFéHIGKEIT oder der BENUTZBARKEIT FöR EINEN BESTIMMTEN ZWECK.
+
+Einzelheiten entnehmen Sie bitte der Datei COPYING.
+
+
+5. KONTAKT
+==========
+
+Wenn Sie einen Fehler entdecken, dann erstellen Sie bitte ein Ticket unter http://svn.netlabs.org/qtapps
+
+Es werden nur Meldungen reproduzierbarer Fehler akzeptiert. :-)
+
+
+6. MITWIRKENDE PERSONEN
+=======================
+
+Die Portierung erfolgte durch:
+
+Silvan Scherrer aka _diver
+
+Dank geht an:
+
+  * Yuri Dario
+  * Doodle
+  * KO Myung-Hun
+  * Herwig Bauernfeind
+  * Christian Hennecke
+
+Die o.g. Personen haben mir bei einigen Åblen Fragen weitergeholfen oder das
+Programm getestet.
+
+
+7. UNTERSTöTZUNG UND SPENDEN
+============================
+
+SMPlayer basiert auf freiwilliger, ehrenamtlicher Arbeit. Wenn Sie die weitere
+Entwicklung unterstÅtzen mîchten, haben Sie folgende Mîglichkeiten:
+
+  * Spenden ans QT4 Projekt: meht Informationen unter http://qt.netlabs.org
+    
+  * Mitarbeit am Projekt: Neben der eigentlichen Entwicklung gehîrt hierzu
+    auch die Pflege der Dokumentation und der Projekt-Web-Site sowie Hilfe fÅr
+    Anwender.
+
+
+8. ENTWICKLUNGSGESCHICHTE
+=========================
+
+2012-05-14
+  * updated to SMPlayer version 0.8.0
+
+2012-03-16
+  * updated to SMPlayer version 0.7.1
+
+2011-12-27
+  * updated to latest SMPlayer svn code
+
+2011-11-11
+  * updated to Qt 4.7.3
+  * fixed a possible hang when ending SMPlayer while playing a movie (patch by Rudi)
+
+2010-06-30
+  * fixed a nasty 1 second delay
+
+2010-04-29
+  * updated to Qt4 4.6.2
+  * added support for mplayer -ao kai (latest mplayer version)
+
+2010-01-29
+  * updated to latest Qt4 source
+  * enabled colorkey (thanks to KO Myung-Hun)
+
+2009-11-11
+  * fixed hang with broken media
+  * changed to Qt4 beta4
+
+2009-10-22
+  * removed requirement for MPlayer DLLs to be in PATH or SMPlayer directory
+    (fixed in Qt)
+  * removed requirement for C:\PSFONTS\helv.pfb (fixed in Qt)
+  * added Screensaver functionality for Doodle Screensaver
+
+2009-10-02
+  * beta1 der neuesten SMPlayer version mit Qt4 support
+
+2009-01-22
+  * Fehler behoben, wenn Audio Dateien abgespielt wurden
+
+2008-11-24
+  * franzîsisches und deutsches Readme hinzugefÅgt (erstellt durch Guillaume Gay und Christian Hennecke)
+  * schînere Icons fÅr Ordner und das EXE hinzugefÅgt (erstellt durch David Graser)
+  * Qt Dll auf neueste SVN Version gebracht
+
+2008-11-04
+  * Fehler in Qt DLL behoben, der beim Abspielen von Abspiellisten auftrat
+  * Symboldatei wegen Zuordnung durch WPS umbenannt
+
+2008-10-27
+  * Skalierungsproblem wird durch aktuellen MPlayer-Build von Hobbes behoben
+  * Fehler behoben, der durch HinzufÅgen neuer Dateiendungen entstanden war
+
+2008-10-20
+  * auf spezielle Qt-DLL umgestellt (neueste Version von svn.netlabs.org/qt)
+  * dem Datei-îffnen-Dialog einige Dateiendungen hinzugefÅgt
+
+2008-10-14
+  * erste Version
