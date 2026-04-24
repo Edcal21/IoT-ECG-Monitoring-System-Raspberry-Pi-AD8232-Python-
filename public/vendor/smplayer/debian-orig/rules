@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+
+#export QT_SELECT=5
+
+#QMAKE_OPTS = DEFINES+=NO_DEBUG_ON_CONSOLE
+QMAKE_OPTS =
+MAKE_OPTS  = PREFIX=/usr QMAKE=qmake LRELEASE=lrelease QMAKE_OPTS="$(QMAKE_OPTS)"
+
+%:
+	dh $@ --parallel
+
+override_dh_auto_clean:
+	[ ! -d src/.moc ] || $(RM) -r src/.moc
+	[ ! -d src/.obj ] || $(RM) -r src/.obj
+	[ ! -d src/.ui ] || $(RM) -r src/.ui
+	[ ! -f src/Makefile ] || dh_auto_clean
+
+override_dh_auto_build:
+	dh_auto_build -- $(MAKE_OPTS) DOC_PATH=\\\"/usr/share/doc/smplayer\\\"
+
+override_dh_auto_install:
+	dh_auto_install -- $(MAKE_OPTS) DOC_PATH=/usr/share/doc/smplayer
+	rm -f debian/tmp/usr/share/doc/smplayer/Copying.txt
