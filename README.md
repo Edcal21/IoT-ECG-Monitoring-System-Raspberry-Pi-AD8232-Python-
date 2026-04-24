@@ -1,16 +1,42 @@
-# React + Vite
+# Sistema IoT de Monitoreo ECG con Raspberry Pi y AD8232
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de monitoreo ECG en tiempo real basado en Raspberry Pi y el sensor AD8232, con visualización web, gestión de sesiones por paciente, exportación automática de registros y generación de reportes clínicos en PDF.
 
-Currently, two official plugins are available:
+## Descripción general
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto fue desarrollado como un prototipo académico y de ingeniería orientado a la adquisición, visualización, almacenamiento y análisis de señales electrocardiográficas (ECG) en tiempo real. El sistema permite capturar la señal desde un sensor AD8232 conectado a una Raspberry Pi, procesarla localmente y mostrarla a través de una interfaz web moderna para su monitoreo.
 
-## React Compiler
+Además, el sistema incorpora funciones de control de calidad de señal, detección de desconexión de electrodos, exportación estructurada de registros y generación automática de reportes en formato PDF.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Características principales
 
-## Expanding the ESLint configuration
+- Visualización ECG en tiempo real desde navegador web
+- Inicio y cierre de sesiones de monitoreo por paciente
+- Detección de calidad de señal y estado de electrodos
+- Filtrado y procesamiento de la señal ECG
+- Extracción de métricas fisiológicas básicas
+- Clasificación/interpretación automática experimental
+- Exportación automática de registros en formato estructurado
+- Generación de imágenes clínicas del trazado ECG
+- Generación de reportes PDF por sesión
+- Monitoreo del estado del sistema en la Raspberry Pi
+- Funcionamiento local en red sin depender de la nube
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Estructura del proyecto
+
+```text
+mi-proyecto-ecg/
+├── Backend/
+│   ├── backend_iot.py
+│   ├── postprocess_ecg.py
+│   ├── export_physionet_style.py
+│   ├── session_store.py
+│   ├── patient_store.py
+│   ├── data/
+│   └── venv/
+├── Frontend/
+│   ├── src/
+│   ├── package.json
+│   └── vite.config.ts
+└── README.md
+
